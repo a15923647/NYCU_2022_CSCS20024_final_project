@@ -9,13 +9,6 @@ from torch.utils.data import DataLoader
 from sklearn.utils import shuffle
 
 all_train_df = pd.read_csv(TRAIN_CSV_PATH).drop(labels=['id'], axis='columns')
-'''
-all_train_df.dropna(inplace=True)
-fail0 = all_train_df[all_train_df['failure'] == 0]
-fail1 = all_train_df[all_train_df['failure'] == 1]
-cnt = min(len(fail0), len(fail1))
-all_train_df = pd.concat([fail0[:cnt], fail1[:cnt]])
-'''
 all_train_df = shuffle(all_train_df)
 
 train_df_len = int(len(all_train_df) * 0.7)
