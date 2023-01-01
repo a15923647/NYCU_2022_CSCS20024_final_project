@@ -1,0 +1,19 @@
+import torch
+PRIMARY_VERSION = 1
+MINOR_VERSION = 0
+TRAIN_CSV_PATH = "train.csv"
+TEST_CSV_PATH = "test.csv"
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+num_gpus = torch.cuda.device_count()
+checkpoint_epochs = 100
+BATCH_SIZE = 500
+lr = 0.69
+weight_decay = 6.5e-6
+betas = (0.9, 0.999)
+epochs = 50
+full_epochs = 15
+val_interval = 1
+CRITERION = lambda: torch.nn.BCELoss()#torch.nn.MSELoss()
+CHECKPOINT_PATH = ''
+IN_FEATURES = 22
+STORE_TRAIN_ALL = True
