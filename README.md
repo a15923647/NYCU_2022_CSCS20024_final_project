@@ -1,8 +1,16 @@
 # NYCU intro2ML final project
+# Setup environment
+## Install dependencies
+```shell
+$ pip3 install -r requirements.txt
+```
+## Fetch data
 First, join competition on the [kaggle page](https://www.kaggle.com/competitions/tabular-playground-series-aug-2022/data) to gain access to competition data.
 Second, fill in fields associated with data in config.py.
+
 # How2train
-Setup hyper parameter in config.py.
+## Setup hyper parameters in config.py.
+## Start to train
 ```shell
 $ python3 109550043_Final_train.py
 ```
