@@ -20,7 +20,7 @@ $ ./grid_search.sh
 ```
 # How2inference
 ```shell
-$ # python3 109550043_Final_inference.py <path2model>
+$ # python3 109550043_Final_inference.py <path2model1> [<path2model2>...]
 $ # for pretrained weight
-$ python3 109550043_Final_inference.py v1.0_improved_1_train_loss_0.51931.model
+$ python3 109550043_Final_inference.py *.model
 ```
