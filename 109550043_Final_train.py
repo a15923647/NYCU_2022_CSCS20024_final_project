@@ -35,8 +35,6 @@ if CHECKPOINT_PATH:
 criterion = CRITERION()
 criterion.to(device)
 optimizer = torch.optim.RAdam(model.parameters(), lr=lr, betas=betas, weight_decay=weight_decay)
-#optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-#optimizer = torch.optim.SGD(model.parameters(),lr=lr)
 model, last_store_path = train(model, train_dl, val_dl, criterion, optimizer, None, epochs, device, checkpoint_epochs=checkpoint_epochs, val_interval=val_interval)
 print(last_store_path)
 #################################### train with full data #####################
@@ -45,8 +43,6 @@ full_dl = DataLoader(full_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=2
 criterion = CRITERION()
 criterion.to(device)
 optimizer = torch.optim.RAdam(model.parameters(), lr=lr, betas=betas, weight_decay=weight_decay)
-#optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-#optimizer = torch.optim.SGD(model.parameters(),lr=lr)
 model.load_state_dict(torch.load(last_store_path, map_location=torch.device(device)))
 model, last_store_path = train(model, full_dl, None, criterion, optimizer, None, full_epochs, device, checkpoint_epochs=checkpoint_epochs, val_interval=val_interval)
 print(last_store_path)

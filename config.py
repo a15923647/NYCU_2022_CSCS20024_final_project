@@ -13,6 +13,6 @@ betas = (0.9, 0.999)
 epochs = 30
 full_epochs = 15
 val_interval = 1
-CRITERION = lambda: torch.nn.BCELoss()#torch.nn.MSELoss()
+CRITERION = lambda: torch.nn.BCELoss()
 CHECKPOINT_PATH = ''
 STORE_TRAIN_ALL = True
