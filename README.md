@@ -24,3 +24,6 @@ $ # python3 109550043_Final_inference.py <path2model1> [<path2model2>...]
 $ # for pretrained weight
 $ python3 109550043_Final_inference.py *.model
 ```
+# Result
+models link: https://drive.google.com/drive/folders/15ZMkjgpwADFoD_pkejQzDQIvoChkUiSt?usp=sharing
+## private score: 0.59234
