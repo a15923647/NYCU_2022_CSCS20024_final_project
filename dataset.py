@@ -23,13 +23,15 @@ class TablarDataset(Dataset):
         if not x_only:
             self.ys = np.float32( df['failure'].values )
 
-        self.columns = df.columns
         for k, vd in TablarDataset.ATTRCONVD.items():
             if k in df.columns:
                 df[k] = df[k].apply(lambda x: vd[x])
-        # use mean to replace empty cell
-        for col in self.columns:
-            df[col].fillna(value=df[col].mean(), inplace=True)
+
+        # fill nan cell with 0 and add an attribute to indicate that
+        nan_columns = df.columns[df.isna().any()].tolist()
+        for col in nan_columns:
+            df[f"{col}_isnan"] = df[col].isna()
+            df[col].fillna(value=0, inplace=True)
 
         if x_only:
             self.xs = np.float32(df.values)
@@ -38,6 +40,7 @@ class TablarDataset(Dataset):
             
         sc = StandardScaler()
         self.xs = sc.fit_transform(self.xs)
+        self.in_features = self.xs.shape[1]
 
     def __getitem__(self, index):
         return (self.xs[index], self.ys[index]) if not self.x_only else self.xs[index]

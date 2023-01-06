@@ -8,7 +8,15 @@ from dataset import TablarDataset
 from torch.utils.data import DataLoader
 from sklearn.utils import shuffle
 
-all_train_df = pd.read_csv(TRAIN_CSV_PATH).drop(labels=['id'], axis='columns')
+org_all_train_df = pd.read_csv(TRAIN_CSV_PATH).drop(labels=['id'], axis='columns')
+zeros, ones = org_all_train_df.failure.value_counts()
+if zeros > ones:
+    zeors_df = org_all_train_df[org_all_train_df['failure'] == 0]
+    ones_df = org_all_train_df[org_all_train_df['failure'] == 1].sample(zeros, replace=True)
+else:
+    zeors_df = org_all_train_df[org_all_train_df['failure'] == 1].sample(zeros, replace=True)
+    ones_df = org_all_train_df[org_all_train_df['failure'] == 0]
+all_train_df = pd.concat([zeors_df, ones_df], axis=0)
 all_train_df = shuffle(all_train_df)
 
 train_df_len = int(len(all_train_df) * 0.7)
@@ -19,7 +27,7 @@ val_ds = TablarDataset(val_df, x_only=False)
 train_dl = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=2*num_gpus, pin_memory=True)
 val_dl = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=2*num_gpus, pin_memory=True)
 
-model = Net(IN_FEATURES)
+model = Net(train_ds.in_features)
 model = model.to(device)
 if CHECKPOINT_PATH:
     model.load_state_dict(torch.load(CHECKPOINT_PATH, map_location=torch.device(device)))
