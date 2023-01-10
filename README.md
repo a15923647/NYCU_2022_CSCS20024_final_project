@@ -18,6 +18,20 @@ It's a combination of data preprocessing, DNN model grid searching and taking av
 * [Model architecture](#model-architecture)
 * [Experiment Result](#experiment-result)
    * [private score: 0.59472](#private-score-059472)
+* [NYCU intro2ML final project](#nycu-intro2ml-final-project)
+* [Setup environment](#setup-environment)
+   * [Platform](#platform)
+   * [Install dependencies](#install-dependencies)
+   * [Fetch data](#fetch-data)
+* [Usage](#usage)
+   * [How2train](#how2train)
+      * [Setup hyper parameters in config.py.](#setup-hyper-parameters-in-configpy)
+      * [Start to train](#start-to-train)
+   * [How2inference](#how2inference)
+* [Data preprocessing](#data-preprocessing)
+* [Model architecture](#model-architecture)
+* [Experiment Result](#experiment-result)
+   * [private score: 0.59472](#private-score-059472)
 
 # Setup environment
 ## Platform
