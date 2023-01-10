@@ -6,6 +6,7 @@ It's a combination of data preprocessing, DNN model grid searching and taking av
 ## Platform
 * Device: cpu(Intel I5 12400)
 * OS: Ubuntu 22.04
+* python: 3.10.6
 
 ## Install dependencies
 ```shell
