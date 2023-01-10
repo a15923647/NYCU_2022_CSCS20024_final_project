@@ -34,4 +34,5 @@ $ python3 109550043_Final_inference.py *.model
 # Result
 models link: https://drive.google.com/drive/folders/15ZMkjgpwADFoD_pkejQzDQIvoChkUiSt?usp=sharing
 ## private score: 0.59472
+![best result screenshot](https://github.com/a15923647/NYCU_2022_CSCS20024_final_project/blob/master/result/best.jpg?raw=true)
 ![private score curve of taking average of several good models](https://github.com/a15923647/NYCU_2022_CSCS20024_final_project/blob/master/result/model1.png?raw=true)
