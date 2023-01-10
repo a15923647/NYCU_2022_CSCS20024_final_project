@@ -46,14 +46,28 @@ $ pip3 install -r requirements.txt
 ## Fetch data
 First, join competition on the [kaggle page](https://www.kaggle.com/competitions/tabular-playground-series-aug-2022/data) to gain access to competition data.\
 Second, fill in fields associated with data in config.py.
-
-# Usage
-## How2train
-### Setup hyper parameters in config.py.
 ```python
 TRAIN_CSV_PATH = <path to train.csv>
 TEST_CSV_PATH = <path to test.csv>
 ```
+
+# Usage
+## How2train
+### Setup hyper parameters in config.py.
+Including
+* device
+* num_gpus
+* checkpoint_epochs
+* BATCH_SIZE
+* lr: learning rate
+* weight_decay
+* betas
+* epochs: number of train-valid epochs
+* full_epochs: number of entire dataset epochs
+* val_interval: validate on every val_interval of epochs
+* CRITERION
+* CHECKPOINT_PATH: checkpoint path to continue from
+* STORE_TRAIN_ALL: whether to store all models in each epochs while training with entire dataset.
 ### Start to train
 You can train model with hyper parameters set in config.py.
 ```shell
