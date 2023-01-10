@@ -2,7 +2,7 @@
 This is my solution for tabular playground series aug 2022 competition hosted on kaggle.\
 It's a combination of data preprocessing, DNN model grid searching and taking average of several models as the final result.
 
-[toc]
+[TOC]
 
 # Setup environment
 ## Platform
