@@ -11,7 +11,7 @@ from predict import predict
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
-        predict(sys.argv[1])
+        predict(sys.argv[1], store_path='109550043.csv')
     elif len(sys.argv) != 1:
-        avg(sys.argv[1:])
+        avg(sys.argv[1:], store_path='109550043.csv')
         
