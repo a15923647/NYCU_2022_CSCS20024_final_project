@@ -7,11 +7,11 @@ class Net(nn.Module):
         super().__init__()
         self.fc = nn.Sequential(
             nn.BatchNorm1d(in_features),
-            nn.Linear(in_features, 24),
+            nn.Linear(in_features, 64),
             nn.ReLU(),
-            nn.Linear(24, 12),
+            nn.Linear(64, 32),
             nn.ReLU(),
-            nn.Linear(12, 1),
+            nn.Linear(32, 1),
             nn.Sigmoid()
         )
 
