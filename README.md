@@ -49,7 +49,7 @@ Or you may wish to use grid search and kaggle API to submit results.
 ```shell
 $ ./grid_search.sh
 ```
-# How2inference
+## How2inference
 ```shell
 $ # python3 109550043_Final_inference.py <path2model1> [<path2model2>...]
 $ # for pretrained weight
