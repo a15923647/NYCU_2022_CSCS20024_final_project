@@ -8,6 +8,7 @@ from dataset import TablarDataset
 from torch.utils.data import DataLoader
 from sklearn.utils import shuffle
 
+# Random Over Sampling
 org_all_train_df = pd.read_csv(TRAIN_CSV_PATH).drop(labels=['id'], axis='columns')
 zeros, ones = org_all_train_df.failure.value_counts()
 if zeros > ones:
@@ -17,8 +18,10 @@ else:
     zeors_df = org_all_train_df[org_all_train_df['failure'] == 1].sample(zeros, replace=True)
     ones_df = org_all_train_df[org_all_train_df['failure'] == 0]
 all_train_df = pd.concat([zeors_df, ones_df], axis=0)
+# mix two class records together
 all_train_df = shuffle(all_train_df)
 
+# train samples : validation samples = 7 : 3
 train_df_len = int(len(all_train_df) * 0.7)
 train_df = all_train_df.iloc[:train_df_len]
 val_df = all_train_df.iloc[train_df_len:]
